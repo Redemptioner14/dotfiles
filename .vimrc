@@ -1,4 +1,4 @@
-syntax on
+" syntax on
 
 " turn on mouse in all modes
 set mouse=a
@@ -32,11 +32,6 @@ Plug 'drewtempelmeyer/palenight.vim'
 Plug 'ervandew/supertab' 
 Plug 'Valloric/YouCompleteMe'
 Plug 'preservim/nerdtree'
-Plug 'leafgarland/typescript-vim'
-Plug 'jremmen/vim-ripgrep'
-Plug 'tpope/vim-fugitive'
-Plug 'lyuts/vim-rtags'
-Plug 'mbbill/undotree'
 Plug 'git@github.com:SirVer/ultisnips.git'
 Plug 'honza/vim-snippets'
 " Commenting
@@ -44,17 +39,18 @@ Plug 'https://tpope.io/vim/commentary.git'
 Plug 'tpope/vim-surround'
 " adding repeatability(dot command) for vim-surrond
 Plug 'https://tpope.io/vim/repeat.git'
-" Status bar
-Plug 'vim-airline/vim-airline'
 " Fuzzy finder
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
+" Plug 'mbbill/undotree'
+" Status bar
+" Plug 'vim-airline/vim-airline'
 call plug#end()
 
 " palenight / gruvbox
-colorscheme gruvbox
+colorscheme palenight
 set background=dark
-set t_Co=256
+" set t_Co=256
 
 " using vim-cpp-modern sytanx highlighting
 
@@ -70,7 +66,7 @@ let g:ycm_global_ycm_extra_conf = '.vim/bundle/YouCompleteMe/third_party/ycmd/cp
 let g:mapleader = "\<space>"
 
 inoremap {<CR> {<CR>}<Esc>O
-inoremap <C-space> <C-o>l
+" inoremap <C-space> <C-o>l
 
 " Split navigation shortcuts
 map <C-h> <C-w>h
@@ -95,7 +91,10 @@ noremap <Leader>y "+y
 noremap <Leader>p "+p
 
 " Overwrite /* */ with // for c,cpp
- autocmd FileType c,cpp setlocal commentstring=//\ %s
+augroup comments
+	autocmd!
+	autocmd FileType c,cpp setlocal commentstring=//\ %s
+augroup END
 
 " Let clangd fully control code completion
 let g:ycm_clangd_uses_ycmd_caching = 0
