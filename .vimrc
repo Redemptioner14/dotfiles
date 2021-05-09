@@ -27,7 +27,7 @@ highlight ColorColumn ctermbg=0 guibg=lightgrey
 
 call plug#begin('~/.vim/plugged')
 " themes
-Plug 'morhetz/gruvbox'
+Plug 'gruvbox-community/gruvbox'
 Plug 'drewtempelmeyer/palenight.vim'
 Plug 'ervandew/supertab' 
 Plug 'Valloric/YouCompleteMe'
@@ -48,7 +48,7 @@ Plug 'junegunn/fzf.vim'
 call plug#end()
 
 " palenight / gruvbox
-colorscheme palenight
+colorscheme gruvbox
 set background=dark
 " set t_Co=256
 
